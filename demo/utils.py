@@ -38,7 +38,7 @@ def plot_metric(metric, save = False):
     plt.grid()
     if save:
         os.chdir(dir_init)
-        plt.savefig(f"{metric}.pdf")
+        plt.savefig(f"{metric}.pdf", bbox_inches='tight')
     plt.show()
     
 def get_results(metric):
