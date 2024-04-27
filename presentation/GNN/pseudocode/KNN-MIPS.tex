@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{algorithm}
+\usepackage{amsmath}
+\usepackage{algorithmic}
+\usepackage{amssymb}
+\usepackage{caption}
+
+\begin{document}
+\begin{algorithm}
+\captionsetup{labelformat=empty}
+\caption{\textbf{Algorithm} KNN-MIPS}
+\begin{algorithmic}
+
+\STATE \textbf{\underline{Input}}: a KNN graph $G = (D, E)$; a query point $\overrightarrow{q}$; the number of required nearest neighbors $K$; the number
+of random restarts $R$; distance function $\rho$; the number of greedy steps $T$; the number of expansions $E$. \\~\\ 
+\STATE $S \gets \{\}$ \COMMENT{Set of MIPS candidates}
+\STATE $U \gets \{\}$ \COMMENT{Set of to be expanded candidates}
+\FOR{$r = 1,..., R$}
+    \STATE $\overrightarrow{x}_{0}$ a point drawn randomly from a uniform distribution over $D$
+    \FOR{$t = 1,...,T$}
+        \STATE $\overrightarrow{x}_{t} = \text{argmin}_{\overrightarrow{x} \in N(\overrightarrow{x}_{t-1},E,G)} 
+        \rho(\overrightarrow{q}^T \overrightarrow{x})$
+        \STATE $S \gets N(\overrightarrow{x}_{t-1},E, G)$ \COMMENT{$N$ is a function that returns neighbors} 
+        \STATE $U \gets \{\rho(\overrightarrow{q}^T \overrightarrow{x}) : \overrightarrow{x} \in N(\overrightarrow{x}_{t-1},E, G)\}$.
+    \ENDFOR
+\ENDFOR \\~\\ 
+\STATE \textbf{\underline{Output}}: Sort $U$, pick the first $K$ elements, and return the corresponding indices in $S$.
+
+\end{algorithmic}
+\end{algorithm}
+
+\end{document}

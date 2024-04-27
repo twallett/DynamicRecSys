@@ -1,0 +1,40 @@
+<mxfile host="app.diagrams.net" modified="2024-04-26T17:37:37.245Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" etag="F2-u_b97L_c9EgerYTTf" version="24.3.0" type="device">
+  <diagram name="Page-1" id="0O0M-yyP_F8YDk-LIvdT">
+    <mxGraphModel dx="995" dy="471" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="5pEM6nVRubFCzMP-jeF2-3" value="&lt;font face=&quot;Serif&quot;&gt;Items&lt;/font&gt;" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
+          <mxGeometry x="200" y="40" width="80" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="5pEM6nVRubFCzMP-jeF2-8" value="&lt;font face=&quot;serif&quot;&gt;millions&lt;/font&gt;" style="shape=singleArrow;whiteSpace=wrap;html=1;arrowWidth=0.55;arrowSize=0.19;" parent="1" vertex="1">
+          <mxGeometry x="280" y="80" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5pEM6nVRubFCzMP-jeF2-9" value="&lt;font face=&quot;Serif&quot;&gt;Matching&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="360" y="50" width="120" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="5pEM6nVRubFCzMP-jeF2-10" value="&lt;font face=&quot;Serif&quot;&gt;hundreds&lt;/font&gt;" style="shape=singleArrow;whiteSpace=wrap;html=1;arrowWidth=0.55;arrowSize=0.19;" parent="1" vertex="1">
+          <mxGeometry x="480" y="80" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5pEM6nVRubFCzMP-jeF2-11" value="&lt;font face=&quot;Serif&quot;&gt;Ranking&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="560" y="70" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5pEM6nVRubFCzMP-jeF2-12" value="&lt;font face=&quot;Serif&quot;&gt;Tens&lt;/font&gt;" style="shape=singleArrow;whiteSpace=wrap;html=1;arrowWidth=0.55;arrowSize=0.19;" parent="1" vertex="1">
+          <mxGeometry x="680" y="80" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="5pEM6nVRubFCzMP-jeF2-15" value="&lt;div&gt;&lt;font face=&quot;Times New Roman&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font face=&quot;lu1GssDBQNQ3nTsO_UOP&quot;&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font face=&quot;lu1GssDBQNQ3nTsO_UOP&quot;&gt;User&lt;/font&gt;&lt;/div&gt;" style="shape=actor;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+          <mxGeometry x="760" y="70" width="40" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="5pEM6nVRubFCzMP-jeF2-16" value="" style="endArrow=classic;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" parent="1" edge="1" source="5pEM6nVRubFCzMP-jeF2-18">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="420" y="180" as="sourcePoint" />
+            <mxPoint x="419.5" y="150" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="5pEM6nVRubFCzMP-jeF2-18" value="&lt;font face=&quot;Serif&quot;&gt;GNN-based Models&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="366.25" y="170" width="107.5" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
