@@ -48,23 +48,32 @@ def dataloader(data, train_index, test_index, device, batch_size=256, num_neighb
         data=data,
         num_neighbors=num_neighbors,
         batch_size=batch_size,
+        time_attr='time',
+        edge_label_time=data['user', 'item'].time[train_index] - 1,
         neg_sampling_ratio = neg_sampling,
         edge_label_index=(('user', 'item'), data['user', 'item'].edge_index[:, train_index].to(device)),
         edge_label=data['user', 'item'].edge_label[train_index].to(device),
+        temporal_strategy='last',
     )
 
     user_loader = NeighborLoader(
         data=data,
         num_neighbors=num_neighbors,
         batch_size=batch_size,
-        input_nodes='user'
+        time_attr='time',
+        input_time=(data['user', 'item'].time[test_index].min() - 1).repeat(data['user'].num_nodes),
+        input_nodes='user',
+        temporal_strategy='last'
     )
 
     item_loader = NeighborLoader(
         data=data,
         num_neighbors=num_neighbors,
         batch_size=batch_size,
+        time_attr='time',
+        input_time=(data['user', 'item'].time[test_index].min() - 1).repeat(data['item'].num_nodes),
         input_nodes='item',
+        temporal_strategy='last'
     )
 
     sparse_size = (data['user'].num_nodes, data['item'].num_nodes)

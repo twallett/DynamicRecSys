@@ -64,3 +64,4 @@ def get_results(metric):
     results_df.index = pd.Index(range(10, 101, 10), name="K")
  
     return results_df.xs(f'{metric}', axis=1, level=1)
+# %%

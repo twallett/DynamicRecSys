@@ -16,7 +16,11 @@ plot_metric(metric='map',
 plot_metric(metric='ndcg', 
             save=True)
 
-recall_df = get_results(metric='recall')
+recall_df = get_results(metric='ndcg')
 
 recall_df
+# %%
+
+#pip install git+https://github.com/pyg-team/pyg-lib.git
+
 # %%
