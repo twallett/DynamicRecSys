@@ -15,8 +15,6 @@ This repository contains resources related to the research paper "A Benchmark fo
 ```bash
 .
 ├── README.md
-├── README_files
-│   └── libs
 ├── code
 │   ├── CaseStudy
 │   └── RecSys
