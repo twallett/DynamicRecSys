@@ -1,4 +1,9 @@
-\documentclass[bst/sn-nature]{sn-jnl}
+% THIS TEMPLATE IS A WORK IN PROGRESS
+% Adapted from an original template by faculty at Reykjavik University, Iceland
+
+\documentclass{scrartcl}
+\input{File_Setup.tex}
+\usepackage{graphicx,epsfig}
 \usepackage{graphicx}%
 \usepackage{multirow}%
 \usepackage{amsmath,amssymb,amsfonts}%
@@ -18,32 +23,60 @@
 \usepackage{colortbl}
 \usepackage{caption}
 \usepackage{longtable}
-
-\geometry{
-    left=0.8cm,
-    right=0.8cm,
-    top=2cm,
-    bottom=4cm,
+\hypersetup{
+   colorlinks   = true,                               %Colours links instead of ugly boxes
+   urlcolor     = blue,                               %Colour for external hyper links
+   linkcolor    = blue,                               %Colour of internal links
+   citecolor    = red,                                %Colour of citations
+   setpagesize  = false,
+   linktocpage  = true,
 }
+\graphicspath{ {fig/} }
+
+
+
+\renewenvironment{abstract}{
+    \centering
+    \textbf{Abstract}
+    \vspace{0.5cm}
+    \par\itshape
+    \begin{minipage}{1\linewidth}}{\end{minipage}
+    \noindent\ignorespaces
+}
+% ------------------------------------------------------------------------------------------------------------------------
 
 \begin{document}
+%Title of the report, name of coworkers and dates (of experiment and of report).
+\begin{titlepage}
+	\centering
+	\includegraphics[width=0.6\textwidth]{GW_logo.eps}\par
+	\vspace{1cm}
+	%%%% COMMENT OUT irrelevant lines below: Data Science OR Computer Science OR none
+	{\scshape\LARGE Data Science Program \par}
+	\vspace{1cm}
+	{\scshape\Large Capstone Report - Spring 2024\par}
+	%{\large \today\par}
+	\vspace{1cm}
+	%%%% PROJECT TITLE
+	{\huge\bfseries A Benchmark for Graph-Based Dynamic Recommendation Systems\par}
+	\vspace{1cm}
+	%%%% AUTHOR(S)
+	{\Large\itshape Tyler Wallett\\}\par
+	\vspace{1cm}
+	supervised by\par
+	%%%% SUPERVISOR(S)
+	Amir Jafari
 
-\title[Article Title]{A Benchmark for Graph-Based Dynamic Recommendation Systems}
-
-\author[1]{\fnm{Tyler} \sur{Wallett}}\email{twallett@gwu.edu}
-
-\author[2]{\fnm{Amir} \sur{Jafari}}\email{ajafari@gwu.edu}
-
-\affil[1,2]{\orgdiv{Data Science}, \orgname{The George Washington University}, \orgaddress{\street{2121 I St NW}, \city{Washington},\state{ D.C.} \postcode{20052}}}
-
-\abstract{\quad The surge of Graph Neural Networks (GNNs) has catalyzed significant advancements in recommendation systems by enabling more effective modeling of user-item interactions within undirected bipartite graphs. However, the proliferation of GNN architectures, coupled with the absence of standardized benchmarking frameworks, presents challenges in systematically evaluating and comparing different dynamic recommendation models. In response, we propose a comprehensive benchmarking study of bipartite GNN operators for recommendation systems using the PyTorch Geometric library. Our contributions include the development of a flexible benchmarking framework encompassing data preprocessing, model training, and evaluation protocols, facilitating fair comparison across diverse dynamic recommendation scenarios. We rigorously assess the performance of various GNN models, ranging from traditional methods to state-of-the-art architectures, on the MovieLens100k dataset. Through insightful analysis of experimental results, we elucidate the strengths and weaknesses of different GNN operators and offer practical suggestions for model selection and configuration. Our work aims to foster transparency, reproducibility, and innovation in GNN-based dynamic recommendation systems, providing a valuable resource for researchers and practitioners in the field.}
-
-\keywords{Recommendation Systems, Graph Neural Networks (GNN), PyTorch Geometric}
-
-\maketitle
-
-\begin{multicols}{2}
-
+	\vfill
+	\begin{abstract}
+	    \quad The surge of Graph Neural Networks (GNNs) has catalyzed significant advancements in recommendation systems by enabling more effective modeling of user-item interactions within undirected bipartite graphs. However, the proliferation of GNN architectures, coupled with the absence of standardized benchmarking frameworks, presents challenges in systematically evaluating and comparing different dynamic recommendation models. In response, we propose a comprehensive benchmarking study of bipartite GNN operators for recommendation systems using the PyTorch Geometric library. Our contributions include the development of a flexible benchmarking framework encompassing data preprocessing, model training, and evaluation protocols, facilitating fair comparison across diverse dynamic recommendation scenarios. We rigorously assess the performance of various GNN models, ranging from traditional methods to state-of-the-art architectures, on the MovieLens100k dataset. Through insightful analysis of experimental results, we elucidate the strengths and weaknesses of different GNN operators and offer practical suggestions for model selection and configuration. Our work aims to foster transparency, reproducibility, and innovation in GNN-based dynamic recommendation systems, providing a valuable resource for researchers and practitioners in the field.
+	\end{abstract}
+	\vfill
+% Bottom of the page
+\end{titlepage}
+\tableofcontents
+\newpage
+% ------------------------------------------------------------------------------------------------------------------------
 \section{Introduction}\label{sec1}
 
 \quad In the realm of recommendation systems, the efficacy of modern algorithms is often evaluated on their ability to understand complex user-item interactions within undirected bipartite graphs. These interactions, which represent the relationships between users and items, are pivotal for generating accurate recommendations in various domains such as e-commerce, social media, and content streaming platforms. With the advent of Graph Neural Networks (GNNs), there has been a surge of interest in leveraging their expressive power to model and predict user preferences more effectively.
@@ -62,6 +95,9 @@ Thus, our contributions are threefold: \\
 
 By providing a comprehensive benchmarking study along with an open-source implementation in PyTorch Geometric, we aim to foster transparency, reproducibility, and innovation in the development of GNN-based dynamic recommendation systems. We believe that our work will serve as a valuable resource for researchers and practitioners seeking to leverage the power of GNNs for building more effective recommendation engines.
 
+
+
+% ------------------------------------------------------------------------------------------------------------------------
 \section{Methodology}
 
 \quad The purpose of this section is to delineate the structured approach utilized for benchmarking PyTorch Geometric's bipartite GNN operators for dynamic recommendation systems. To fulfill this purpose this section introduces graph theory concepts for edge-level prediction for dynamic recommendation systems, provides an overview of the PyTorch Geometric pipeline, describes each model, and accounts for the dataset and metrics utilized.
@@ -361,6 +397,8 @@ MovieLens100k\cite{movielens}               & 942 & 1447 & 55,375 \\ \hline
 \label{tab:dataset}
 \end{center}
 
+% ------------------------------------------------------------------------------------------------------------------------
+
 \section{Results}
 
 \begin{figure*}
@@ -416,12 +454,18 @@ In figure \ref{fig:ndcg} and table \ref{tab:ndcg}, the results for nDCG@$k$ are 
 
 Lastly, apart from the visually underperforming models mentioned at the beginning of this section, other models such as GATConv, GATv2Conv and GENConv were also unable to get a single top score for each metric at any given $k$.
 
+
+% ------------------------------------------------------------------------------------------------------------------------
+
 \section{Discussion}
 
 \quad In table \ref{tab:aggregated}, an aggregation of the top-performing models across all metrics is presented. This table provides a summary of the most successful models based on their cumulative performance across the evaluated metrics. Noticeably, from the total column, we can observe that the two best models were GINConv with 22 top scores and SAGEConv with 11 top scores. This superior performance in our dynamic recommendation system benchmark can be attributed to their ability to effectively leverage graph structure, adaptively combine information from the target entity and its neighbors, and introduce flexibility and expressiveness through learnable parameters. These attributes enable GINConv and SAGEConv to capture intricate relationships and dependencies within the recommendation system, ultimately leading to improved recommendation performance.
 
 For future work, we propose several avenues to further enhance dynamic recommendation systems. Firstly, exploring deeper architectures of Graph Neural Networks (GNNs) beyond GINConv and SAGEConv could unlock additional improvements in recommendation accuracy and personalization. Secondly, integrating Bipartite LSTMs into the recommendation framework offers a promising approach to modeling sequential interactions in bipartite graphs, potentially capturing temporal dynamics and long-term user preferences more effectively. Additionally, expanding the scope of datasets used for benchmarking could provide a more comprehensive evaluation of recommendation algorithms across diverse domains and scenarios. Lastly, leveraging more advanced computing resources such as AWS EC2 instances could facilitate extensive experimentation and model training, enabling us to tackle larger-scale recommendation problems and explore more complex architectures effectively.
 
+
+
+% ------------------------------------------------------------------------------------------------------------------------
 \section{Conclusion}
 
 \quad In this research, we embarked on a meticulous exploration of Graph Neural Networks (GNNs) applied to dynamic recommendation systems within the context of undirected bipartite graphs. Our primary objective was to establish a standardized benchmarking framework to systematically evaluate the efficacy of various GNN operators tailored for this domain. To achieve this, we meticulously curated a comprehensive set of GNN models ranging from traditional techniques to state-of-the-art architectures, leveraging the PyTorch Geometric library for implementation.
@@ -430,11 +474,9 @@ Our contributions were threefold. Firstly, we developed a flexible and extensibl
 
 By offering this comprehensive benchmarking study along with an open-source implementation in PyTorch Geometric, we aim to foster transparency, reproducibility, and innovation in the development of GNN-based dynamic recommendation systems. We believe that our work serves as a valuable resource for the community, facilitating advancements in recommendation engine technology and ultimately enhancing user experiences across various domains.
 
-\end{multicols}
+\begin{appendices}
 
 \clearpage
-
-\begin{appendices}
 
 \section{Summary of Models}\label{secA1}
 
@@ -501,10 +543,6 @@ By offering this comprehensive benchmarking study along with an open-source impl
     \rowcolor[gray]{0.9} & $\mathbf{x}^{\prime}_{user_{i}} = \mathbf{W}_1 \mathbf{x}_{user_{i}} + \sum_{j \in \mathcal{N}(i)} \alpha_{i,j} \mathbf{W}_2 \mathbf{x}_{user_{j}}$ \\
     \rowcolor[gray]{0.9} & $\alpha_{i,j} = \textrm{softmax} \left( \frac{(\mathbf{W}_3\mathbf{x}_{user_{i}})^{\top} (\mathbf{W}_4\mathbf{x}_{user_{j}})} {\sqrt{d}} \right)$ \\
     \rowcolor[gray]{0.9} & \\
-
-    \hline
-    \multicolumn{3}{c}{} \\
-    \multicolumn{3}{c}{} \\
     
      & \\
     GINConv & $\mathbf{x}^{\prime}_{item_{i}} = NN_{\mathbf{\Theta}} \left( (1 + \epsilon) \cdot \mathbf{x}_{item_{i}} + \sum_{j \in \mathcal{N}(i)} \mathbf{x}_{item_{j}} \right)$ \\
@@ -601,7 +639,7 @@ By offering this comprehensive benchmarking study along with an open-source impl
 \vspace{1cm}
 
 \begin{table}[htbp]
-    \centering 
+    \hspace{-2.3cm}
     \begin{tabular}{|l|*{10}{c|}}
     \hline
     \multirow{2}{*}{Model} & \multicolumn{10}{c|}{K} \\
@@ -626,7 +664,7 @@ By offering this comprehensive benchmarking study along with an open-source impl
 \end{table}
 
 \begin{table}[htbp]
-    \centering 
+    \hspace{-2.3cm} 
     \begin{tabular}{|l|*{10}{c|}}
     \hline
     \multirow{2}{*}{Model} & \multicolumn{10}{c|}{K} \\
@@ -651,7 +689,7 @@ By offering this comprehensive benchmarking study along with an open-source impl
 \end{table}
 
 \begin{table}[htbp]
-    \centering 
+    \hspace{-2.3cm}
     \begin{tabular}{|l|*{10}{c|}}
     \hline
     \multirow{2}{*}{Model} & \multicolumn{10}{c|}{K} \\
@@ -676,7 +714,7 @@ By offering this comprehensive benchmarking study along with an open-source impl
 \end{table}
 
 \begin{table}[htbp]
-    \centering 
+    \hspace{-2.3cm}
     \begin{tabular}{|l|*{10}{c|}}
     \hline
     \multirow{2}{*}{Model} & \multicolumn{10}{c|}{K} \\
@@ -701,7 +739,7 @@ By offering this comprehensive benchmarking study along with an open-source impl
 \end{table}
 
 \begin{table}[htbp]
-    \centering 
+    \hspace{-2.3cm}
     \begin{tabular}{|l|*{10}{c|}}
     \hline
     \multirow{2}{*}{Model} & \multicolumn{10}{c|}{K} \\
@@ -754,11 +792,14 @@ By offering this comprehensive benchmarking study along with an open-source impl
 
 \clearpage
 
-\begin{multicols}{2}
-
 \bibliographystyle{unsrt}
-\bibliography{Paper/sn-bibliography}
+\bibliography{Report/sn-bibliography}
 
-\end{multicols}
 
-\end{document}
+%------ To create Appendix with additional stuff -------%
+%\newpage
+%\appendix
+%\section{Appendix}
+%Put data files, CAD drawings, additional sketches, etc.
+
+\end{document} 
