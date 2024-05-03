@@ -15,7 +15,19 @@ def plot_metric(data, metric, save = False):
     dir = os.listdir()
     dir.sort()
     
-    model_names = [name[:-12] for name in dir]
+    model_names = ['SimpleConv', 
+                   'SAGEConv', 
+                   'GraphConv', 
+                   'ResGatedGraphConv',
+                   'GATConv', 
+                   'GATv2Conv', 
+                   'TransformerConv', 
+                   'GINConv', 
+                   'EdgeConv', 
+                   'FeaStConv', 
+                   'LEConv', 
+                   'GENConv',
+                   'WLConvContinuous']
 
     colors = plt.cm.tab20.colors
 
@@ -24,7 +36,7 @@ def plot_metric(data, metric, save = False):
     handles = []
 
     for idx, name in enumerate(model_names):
-        path = cdir + os.sep + dir[idx]
+        path = cdir + os.sep + name + '_results.csv'
         results_df = pd.read_csv(path, index_col=0)
         color = colors[idx % len(colors)]
         plt.plot(results_df.K, results_df[f"{metric}"], label=name, color=color)
@@ -50,12 +62,24 @@ def get_results(data, metric):
     dir = os.listdir()
     dir.sort()
     
-    model_names = [name[:-12] for name in dir]
+    model_names = ['SimpleConv', 
+                'SAGEConv', 
+                'GraphConv', 
+                'ResGatedGraphConv',
+                'GATConv', 
+                'GATv2Conv', 
+                'TransformerConv', 
+                'GINConv', 
+                'EdgeConv', 
+                'FeaStConv', 
+                'LEConv', 
+                'GENConv',
+                'WLConvContinuous']
 
     results = {}
 
     for idx, name in enumerate(model_names):
-        path = cdir + os.sep + dir[idx]
+        path = cdir + os.sep + name + '_results.csv'
         results_df = pd.read_csv(path, index_col=0)
         
         results_df.columns = pd.MultiIndex.from_product([[name], results_df.columns])

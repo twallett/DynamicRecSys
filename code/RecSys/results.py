@@ -22,7 +22,7 @@ plot_metric(data = 'MovieLens100k',
             save=True)
 
 results_df = get_results(data = 'MovieLens100k',
-                        metric='recall')
+                        metric='ndcg')
 
 results_df
 
