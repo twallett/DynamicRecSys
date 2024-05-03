@@ -8,7 +8,7 @@ This repository contains resources related to the research paper "A Benchmark fo
 
 ### How to run code?
 
-![How to run DynamicRecSys.](howtoruncode.mp4)
+[click here](https://vimeo.com/942515870?share=copy)
 
 ### What is the folder structure?
 
@@ -23,7 +23,6 @@ This repository contains resources related to the research paper "A Benchmark fo
 ├── full_report
 │   ├── FinalReport.pdf
 │   └── Report
-├── howtoruncode.mp4
 ├── presentation
 │   ├── GNN
 │   ├── Presentation.pdf
