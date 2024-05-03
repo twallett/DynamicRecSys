@@ -4,28 +4,37 @@
 
 This repository contains resources related to the research paper "A Benchmark for Graph-Based Dynamic Recommendation Systems". The paper aims to provide a comprehensive benchmarking framework for evaluating the performance of graph-based dynamic recommendation systems.
 
-## Folder Structure
+## FAQ
+
+### How to run code?
+
+![How to run DynamicRecSys.](howtoruncode.mp4)
+
+### What is the folder structure?
 
 ```bash
 .
 ├── README.md
+├── README_files
+│   └── libs
 ├── code
 │   ├── CaseStudy
 │   └── RecSys
 ├── full_report
-│   ├── FullReport.pdf
+│   ├── FinalReport.pdf
+│   └── Report
+├── howtoruncode.mp4
 ├── presentation
 │   ├── GNN
 │   ├── Presentation.pdf
 │   └── Presentation.tex
-└── research_paper
-    ├── ResearchPaper.pdf 
-    └── ResearchPaper.tex
+├── research_paper
+│   ├── Paper
+│   └── ResearchPaper.pdf
+└── runme.py
 ```
 
-## Requirements
-
-Please pip install the following to run the code:
+### What Python libraries are required?
 
 ```bash
 !pip install torch
@@ -45,10 +54,10 @@ import torch
 !pip install cmake
 
 !pip install git+https://github.com/pyg-team/pyg-lib.git
-
 ```
 
-## Citation
+### What citation should I use?
+
 If you find this work useful in your research, please cite the corresponding research paper:
 
 ```bash
