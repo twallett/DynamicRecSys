@@ -58,7 +58,7 @@ import torch
 If you find this work useful in your research, please cite the corresponding research paper:
 
 ```bash
-TBD BibTex 
+Wallett, T., Jafari, A. A benchmark for graph-based dynamic recommendation systems. Neural Comput & Applic (2024). https://doi.org/10.1007/s00521-024-10425-6
 ```
 
 For any inquiries or feedback, please contact twallett@gwu.edu
